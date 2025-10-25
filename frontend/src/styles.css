@@ -1,0 +1,101 @@
+:root{
+	--bg:#f6f8fb;
+	--card:#ffffff;
+	--muted:#6b7280;
+	--accent:#2563eb;
+	--accent-600:#1e40af;
+}
+*{box-sizing:border-box}
+body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin: 0; background: var(--bg); color:#111827 }
+.container { max-width: 980px; margin: 0 auto; padding: 1rem; }
+.app-root header{ background: linear-gradient(90deg,#fff,#f8fafc); border-bottom:1px solid #e6eef8 }
+.header-row{ display:flex; align-items:center; justify-content:space-between; padding: 1rem 0 }
+.brand{ margin:0; font-size:1.25rem; color:var(--accent-600) }
+.user-name{ margin-right:0.5rem; color:var(--muted); font-size:0.95rem }
+.main{ padding:1.5rem 0 }
+.center-box{ padding:2rem; text-align:center }
+.login-page{ display:flex; align-items:center; justify-content:center; min-height: calc(100vh - 84px); padding: 2rem }
+.login-card{ background: linear-gradient(180deg,#ffffff, #fbfdff); padding:28px; border-radius:14px; box-shadow: 0 20px 48px rgba(2,6,23,0.12); max-width:560px; width:100%; text-align:center }
+.login-brand{ margin:0 0 8px; font-size:28px; color:var(--accent-600); font-weight:800 }
+.login-sub{ margin:0 0 18px; color:var(--muted); font-size:15px }
+.login-card .muted{ color:#6b7280 }
+
+/* header sign-in small container style */
+#header-gsi { display:inline-block; }
+
+.card{ background:var(--card); padding:1rem 1.25rem; border-radius:8px; box-shadow: 0 1px 3px rgba(16,24,40,0.04); margin-bottom:1rem }
+.muted{ color:var(--muted); font-size:0.9rem }
+.nav{ display:flex; gap:12px; margin-bottom:1rem; align-items:center; flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch }
+.nav-link{ padding:8px 12px; border-radius:6px; color:#0f172a; text-decoration:none }
+.nav-link.active{ background:linear-gradient(90deg,var(--accent),var(--accent-600)); color:#fff }
+.btn{ background:var(--accent); color:#fff; border:none; padding:8px 10px; border-radius:6px; cursor:pointer }
+.btn.small{ padding:6px 8px; font-size:0.9rem }
+form input, form textarea{ width:100%; padding:8px; border:1px solid #e6edf6; border-radius:6px; margin:6px 0 }
+form button{ margin-top:8px }
+ul{ list-style:none; padding:0 }
+li{ background:var(--card); padding:10px; border-radius:8px; margin-bottom:8px; box-shadow: 0 1px 2px rgba(2,6,23,0.04) }
+
+@media(min-width:900px){
+	.main{ display:flex; gap:20px }
+	main{ flex:1 }
+}
+
+/* Page header layout for list pages */
+.page-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px }
+.page-title{ margin:0 }
+.top-right{ display:flex; gap:8px }
+
+/* Modal */
+.modal-overlay{ position:fixed; inset:0; background:rgba(2,6,23,0.4); display:flex; align-items:center; justify-content:center; z-index:40 }
+.modal{ background:var(--card); padding:16px; border-radius:10px; width:100%; max-width:520px; box-shadow: 0 8px 24px rgba(2,6,23,0.2) }
+.modal form input, .modal form textarea{ margin:6px 0 }
+.empty-state{ text-align:center; color:var(--muted); padding:1.25rem }
+
+/* Hero / template styles */
+.site-header{ background: linear-gradient(90deg,#fff8f6 0%, #f7fff0 100%); border-bottom:1px solid #efecec }
+.header-row{ padding: 0.75rem 0 }
+.nav{ display:flex; gap:12px; margin-bottom:1rem; align-items:center; flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch }
+.nav-link{ padding:6px 10px; border-radius:20px; color:#0f172a; text-decoration:none; background: rgba(255,255,255,0.6); border:1px solid rgba(2,6,23,0.04); font-size:0.95rem }
+.nav-link:hover{ box-shadow: 0 6px 14px rgba(2,6,23,0.06) }
+.nav-link.active{ background:linear-gradient(90deg,var(--accent),var(--accent-600)); color:#fff }
+
+.hero{ padding:36px 0; background: linear-gradient(90deg,#fff5f7 0%, #f8fff0 100%); border-bottom:1px solid rgba(0,0,0,0.02) }
+.hero-inner{ display:flex; align-items:center; gap:32px }
+.hero-left{ flex:1 }
+.hero-title{ font-size:64px; margin:0 0 12px; line-height:1.02; font-weight:700; color:#0b3a16 }
+.hero-title .accent{ color:#6aa84f }
+.hero-sub{ color:var(--muted); font-size:18px; max-width:560px }
+.hero-right{ display:flex; flex-direction:column; align-items:flex-end }
+.hero-cta-stack{ display:flex; flex-direction:column; gap:14px; margin-bottom:18px }
+.hero-cta{ padding:14px 28px; border-radius:8px; color:#fff; text-decoration:none; display:inline-block; font-weight:700; box-shadow: 0 8px 18px rgba(2,6,23,0.08) }
+.hero-cta.primary{ background: linear-gradient(180deg,var(--accent),var(--accent-600)) }
+.hero-cta.primary:hover{ transform: translateY(-2px) }
+.hero-cta.danger{ background: linear-gradient(180deg,#e05a4b,#c83b2b) }
+.hero-cta.success{ background: linear-gradient(180deg,#34d399,#10b981) }
+
+/* New vibrant CTA variants to better match template */
+.hero-cta.vivid{ background: linear-gradient(135deg,#7c3aed,#ec4899); box-shadow: 0 12px 28px rgba(124,58,237,0.16); }
+.hero-cta.vivid:hover{ transform: translateY(-3px); box-shadow: 0 18px 36px rgba(124,58,237,0.18); }
+.hero-cta.sun{ background: linear-gradient(135deg,#ff7a18,#ffb86b); color:#0b1320; box-shadow: 0 12px 28px rgba(255,122,24,0.14); }
+.hero-cta.sun:hover{ transform: translateY(-3px); box-shadow: 0 18px 36px rgba(255,122,24,0.16); }
+.hero-images{ display:flex; gap:8px; align-items:center }
+.hero-images .img{ width:120px; height:80px; border-radius:10px; background-size:cover; box-shadow: 0 8px 22px rgba(2,6,23,0.08) }
+.hero-images .img-1{ background-image: linear-gradient(135deg,#fef3c7,#fde68a) }
+.hero-images .img-2{ background-image: linear-gradient(135deg,#dbeafe,#bfdbfe) }
+.hero-images .img-3{ background-image: linear-gradient(135deg,#dcfce7,#bbf7d0) }
+
+/* Footer */
+.site-footer{ margin-top:28px; background:#fff; border-top:1px solid #f0f4f8 }
+.footer-inner{ display:flex; gap:24px; padding:24px 0 }
+.footer-col h4{ margin:0 0 8px }
+.footer-col ul{ list-style:none; padding:0; margin:0 }
+.footer-col li{ color:var(--muted); margin-bottom:6px }
+.footer-bottom{ text-align:center; padding:12px 0; font-size:13px; color:var(--muted); border-top:1px solid #f3f6fb }
+
+@media(max-width:800px){
+	.hero-inner{ flex-direction:column; align-items:flex-start }
+	.hero-right{ align-self:stretch; width:100%; align-items:flex-start }
+	.hero-cta-stack{ flex-direction:row }
+	.hero-cta{ flex:1 }
+	.hero-title{ font-size:36px }
+}

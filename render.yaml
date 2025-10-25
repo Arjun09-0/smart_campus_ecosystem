@@ -1,0 +1,19 @@
+# Render spec to deploy backend service
+# Replace branch, name, and region as needed
+services:
+  - type: web
+    name: smart-campus-backend
+    env: node
+    plan: free
+    region: oregon
+    branch: main
+    autoDeploy: true
+    buildCommand: "cd backend && npm ci"
+    startCommand: "cd backend && npm start"
+    envVars:
+      - key: MONGO_URI
+        value: "${MONGO_URI}"
+      - key: SESSION_KEY
+        value: "${SESSION_KEY}"
+      - key: FRONTEND_ORIGIN
+        value: "${FRONTEND_ORIGIN}"
