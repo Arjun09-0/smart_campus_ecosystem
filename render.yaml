@@ -5,6 +5,7 @@
 services:
   - type: web
     name: smart-campus-backend
+    runtime: node # Render environment
     env: node
     plan: free # Free tier - upgrade to 'starter' for production
     region: oregon # Choose: oregon, frankfurt, singapore, ohio
