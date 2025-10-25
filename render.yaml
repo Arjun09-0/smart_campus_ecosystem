@@ -1,19 +1,28 @@
-# Render spec to deploy backend service
-# Replace branch, name, and region as needed
+# Render Blueprint - Smart Campus Backend
+# This file automatically configures your Render deployment
+# Documentation: https://render.com/docs/blueprint-spec
+
 services:
   - type: web
     name: smart-campus-backend
     env: node
-    plan: free
-    region: oregon
+    plan: free # Free tier - upgrade to 'starter' for production
+    region: oregon # Choose: oregon, frankfurt, singapore, ohio
     branch: main
-    autoDeploy: true
+    autoDeploy: true # Auto-deploy on git push
     buildCommand: "cd backend && npm ci"
     startCommand: "cd backend && npm start"
+    healthCheckPath: /health
     envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
       - key: MONGO_URI
-        value: "${MONGO_URI}"
+        sync: false # Set manually in Render Dashboard (secret)
       - key: SESSION_KEY
-        value: "${SESSION_KEY}"
+        sync: false # Set manually in Render Dashboard (secret)
       - key: FRONTEND_ORIGIN
-        value: "${FRONTEND_ORIGIN}"
+        sync: false # Set manually in Render Dashboard
+      - key: GOOGLE_CLIENT_ID
+        sync: false # Set manually in Render Dashboard (secret)
