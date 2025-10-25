@@ -9,6 +9,7 @@ import ClubDetail from './components/ClubDetail'
 import NavBar from './components/NavBar'
 import FacultyDashboard from './components/FacultyDashboard'
 import AdminDashboard from './components/AdminDashboard'
+import { getApiUrl } from './config'
 
 function Home({ user }) {
   return (
@@ -50,13 +51,13 @@ export default function App() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch('/api/auth/me', { credentials: 'include' })
+    fetch(getApiUrl('/api/auth/me'), { credentials: 'include' })
       .then(r => r.json())
       .then(j => setUser(j.user))
   }, [])
 
   async function logout() {
-    await fetch('/api/auth/logout', { method: 'POST', credentials: 'include' })
+    await fetch(getApiUrl('/api/auth/logout'), { method: 'POST', credentials: 'include' })
     setUser(null)
     navigate('/')
   }

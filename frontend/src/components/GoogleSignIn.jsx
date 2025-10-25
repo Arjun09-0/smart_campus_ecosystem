@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
+import { getApiUrl } from '../config'
 
 export default function GoogleSignIn({ onAuth, containerId = 'gsi-button' }) {
   const [ready, setReady] = useState(false)
@@ -44,7 +45,7 @@ export default function GoogleSignIn({ onAuth, containerId = 'gsi-button' }) {
   async function handleCredentialResponse(response) {
     try {
       const idToken = response.credential
-      const res = await fetch('/api/auth/google', {
+      const res = await fetch(getApiUrl('/api/auth/google'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

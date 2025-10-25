@@ -16,9 +16,11 @@ router.post('/', async (req, res) => {
 
     // Restrict sign-in to KLH accounts only
     const allowedDomain = 'klh.edu.in'
-    if (!email || !email.toLowerCase().endsWith(`@${allowedDomain}`)) {
-      console.warn('Blocked sign-in for non-KLH email:', email)
-      return res.status(403).json({ ok: false, error: `Only kl university accounts are allowed to sign in.` })
+    const testEmail = 'n.arjunreddy893297@gmail.com' // Temporary: allow test account
+    
+    if (!email || (!email.toLowerCase().endsWith(`@${allowedDomain}`) && email.toLowerCase() !== testEmail.toLowerCase())) {
+      console.warn('Blocked sign-in attempt:', { email, allowedDomain, testEmail })
+      return res.status(403).json({ ok: false, error: `Only @${allowedDomain} accounts are permitted. If you need help, contact campus IT.` })
     }
     let user = await User.findOne({ email });
     if (!user) {

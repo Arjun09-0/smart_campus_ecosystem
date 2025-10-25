@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Hero from './Hero'
+import { getApiUrl } from '../config'
 
 export default function Events() {
   const [events, setEvents] = useState([])
@@ -14,7 +15,7 @@ export default function Events() {
 
   async function fetchEvents() {
     try {
-      const res = await fetch('/api/events')
+      const res = await fetch(getApiUrl('/api/events'))
       const j = await res.json()
       if (j.ok) setEvents(j.events || [])
     } catch (err) {
@@ -26,7 +27,7 @@ export default function Events() {
     e.preventDefault()
     setLoading(true)
     try {
-      const res = await fetch('/api/events', {
+      const res = await fetch(getApiUrl('/api/events'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
