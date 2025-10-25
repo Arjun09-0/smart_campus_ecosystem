@@ -11,7 +11,7 @@ services:
     region: oregon # Choose: oregon, frankfurt, singapore, ohio
     branch: main
     autoDeploy: true # Auto-deploy on git push
-    buildCommand: "cd backend && npm ci"
+    buildCommand: "cd backend && npm install"
     startCommand: "cd backend && npm start"
     healthCheckPath: /health
     envVars:
